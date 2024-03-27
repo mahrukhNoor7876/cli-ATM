@@ -31,7 +31,7 @@ if (pinAnswer.pin === myPin) {
             console.log(`Your remaining balance is: ${myBalance}`);
         }
         else {
-            console.log("Your account has less amount than your withdraw amount!");
+            console.log("Insufficient Balance!");
         }
     }
     else if (operationAns.operation === "Check Balance") {
