@@ -61,5 +61,5 @@ if(pinAnswer.pin === myPin){
     }
 }
 else{
-    console.log("Incorrect pin number");
+    console.log("Incorrect pin code");
 }
