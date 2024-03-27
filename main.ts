@@ -19,7 +19,7 @@ if(pinAnswer.pin === myPin){
                 name:"operation",
                 message:"Please select option ",
                 type:"list",
-                choices:["Withdraw","Check Balance"]
+                choices:["Withdraw","Check Balance","Fast Cash"]
             }
         ]
     );
@@ -28,9 +28,8 @@ if(pinAnswer.pin === myPin){
             [
                 {
                     name:"amount",
-                    message:"How much amount you want to withdraw: ",
-                    type:"list",
-                    choices:[1000,2000,5000,10000]
+                    message:"Enter your amount: ",
+                    type:"number",
                 }
             ]
         );
@@ -38,6 +37,7 @@ if(pinAnswer.pin === myPin){
             myBalance-=amountAns.amount;
             console.log(`Your remaining balance is: ${myBalance}`);
         }
+
         else{
             console.log("Your account has less amount than your withdraw amount!");
         }
@@ -45,8 +45,19 @@ if(pinAnswer.pin === myPin){
     else if(operationAns.operation === "Check Balance"){
        console.log(`Your balance is: ${myBalance}`); 
     }
-    else{
-        console.log("Please select valid option!");
+    else if(operationAns.operation === "Fast Cash"){
+        let fastCashAns=await inquirer.prompt(
+            [
+                {
+                    name:"fastCash",
+                    message:"How much amount you want to fast cash: ",
+                    type:"list",
+                    choices:[1000,2000,5000,10000]
+                }
+            ]
+        );
+        myBalance-=fastCashAns.fastCash
+        console.log(`Your remaining amount is: ${myBalance}`);
     }
 }
 else{
